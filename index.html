@@ -1,0 +1,41 @@
+<html>
+<head></head>
+<body>
+    <span id="wrap">
+        <span id="main">00:00:00</span>
+        <span id="ms">0</span>
+    </span>
+    <script>
+        var id = setInterval(() => {
+            var dt = new Date()
+            var t = `${String(dt.getHours()).padStart(2,'0')}:${String(dt.getMinutes()).padStart(2,'0')}:${String(dt.getSeconds()).padStart(2,'0')}`
+            document.querySelector('#main').innerText = t
+            document.querySelector('#ms').innerText = parseInt(dt.getMilliseconds()/100)
+            // document.querySelector('#ms').innerText = String(dt.getMilliseconds()).padStart(3,'0')
+        }, 1);
+    </script>
+    <style>
+        @font-face {
+            font-family: 'digital';
+            src: url('./DS-DIGI.TTF') format('truetype');
+        }
+        #wrap {
+            position: absolute;
+            color: #fff;
+            font-family: 'digital';
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            align-items: end;
+        }
+        #main {
+            font-size: 16vh;
+        }
+        body {
+            background-color: #000;
+            font-size: 6vh;
+        }
+    </style>
+</body>
+</html>
